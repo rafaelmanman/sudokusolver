@@ -1,0 +1,5 @@
+name: solver
+version: 0.0.1
+description: Sudoku Solver
+dev_dependencies:
+  test: ^1.14.2
