@@ -1,10 +1,17 @@
+import 'sudoku_ui.dart';
 import 'dart:html';
 
-TableElement sudoku_grid;
+Puzzle puzzle;
+
+void captureKeystroke(Event e) {
+  if (e is KeyboardEvent) {
+    KeyboardEvent keyboard_event = e as KeyboardEvent;
+    puzzle.handleKeyboardInput(keyboard_event);
+  }
+}
+
 
 void main() {
-  var header = querySelector("#header");
-  var sudoku_grid = querySelector("#sudoku-grid");
-  print(sudoku_grid);
-  print(header);
+  window.onKeyUp.listen(captureKeystroke);
+  puzzle = new Puzzle();
 }
