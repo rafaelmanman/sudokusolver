@@ -6,7 +6,8 @@ class Puzzle{
   Puzzle() {
     this.cursor = new Cursor(9);
     //this.puzzle = new TableElement();
-    this.puzzle = querySelector('sudoku_grid');
+    this.puzzle = querySelector('#sudoku-grid');
+    print(this.puzzle);
   }
 
   void createPuzzle() {
@@ -46,6 +47,9 @@ class Puzzle{
     var gridData = grid.data;
     for(int i=0; i<puzzle.rows.length; i++){
       for(int j=0; j<puzzle.rows[i].cells.length; j++) {
+        if (puzzle.rows[i].cells[j].innerHtml == "") {
+          puzzle.rows[i].cells[j].classes.add("solution");
+        }
         puzzle.rows[i].cells[j].innerHtml = gridData[i][j].toString(); 
       }
     }
@@ -110,7 +114,6 @@ class Puzzle{
         solvePuzzle();
         break;
     }
-
     updatePuzzleCursor();
   }
 }

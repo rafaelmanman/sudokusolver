@@ -37,3 +37,7 @@ td {
 .selected {
   background-color: lightgray;
 }
+
+.solution {
+  color: red;
+}
